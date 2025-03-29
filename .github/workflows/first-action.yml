@@ -1,0 +1,14 @@
+name: First GitHub Action
+
+on: push  # Trigger workflow on every push to any branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Runner OS
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3  # Fetches the repo code
+
+      - name: Print a Message
+        run: echo "Hello, GitHub Actions!"
