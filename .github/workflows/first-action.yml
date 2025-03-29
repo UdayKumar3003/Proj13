@@ -1,9 +1,7 @@
-name: Deploy EC2 using Terraform
+name: Destroy EC2 using Terraform
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:  # Manually trigger the workflow from GitHub Actions UI
 
 jobs:
   terraform:
@@ -28,8 +26,8 @@ jobs:
       - name: Terraform Init
         run: terraform init -input=false
 
-      - name: Terraform Plan
-        run: terraform plan -input=false
+      - name: Terraform Plan (Destroy)
+        run: terraform plan -destroy -input=false
 
-      - name: Terraform destroy
+      - name: Terraform Destroy
         run: terraform destroy -auto-approve -input=false
